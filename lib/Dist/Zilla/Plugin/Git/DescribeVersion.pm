@@ -62,13 +62,13 @@ In your F<dist.ini>:
 
 =head1 DESCRIPTION
 
-This does the L<Dist::Zilla::Role::VersionProvider> role.
+This performs the L<Dist::Zilla::Role::VersionProvider> role.
 It uses L<Git::DescribeVersion> to count the number of commits
 since the last tag (matching I<match_pattern>) or since the initial commit,
 and uses the result as the I<version> parameter for your distribution.
 
 The plugin accepts the same options as
-L<< Git::DescribeVersion->new()|Git::DescribeVersion/new >>.
+L<Git::DescribeVersion/new>.
 See L<Git::DescribeVersion/OPTIONS>.
 
 You can also set the C<V> environment variable to override the new version.
