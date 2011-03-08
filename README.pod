@@ -1,0 +1,8 @@
+=head1 Dist::Zilla::Plugin::Git::DescribeVersion
+
+A L<Dist::Zilla> plugin for determining the dist's version
+using L<Git::DescribeVersion>.
+
+See module POD for more information.
+
+=cut
