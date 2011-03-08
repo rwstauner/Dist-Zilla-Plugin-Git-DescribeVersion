@@ -1,6 +1,6 @@
 use strict;
 use warnings;
-use Test::More;
+use Test::More 0.96;
 use Test::MockObject 1.09;
 use Test::MockObject::Extends 1.09;
 
@@ -19,7 +19,7 @@ $gdv->set_bound(version => \$expversion);
 %Git::DescribeVersion::Defaults = ('cookie' => 'tasty', no => 'change');
 
 my $mod = 'Dist::Zilla::Plugin::Git::DescribeVersion';
-require_ok($mod);
+eval "require $mod" or die $@;
 my $plug = $mod->new({plugin_name => $mod, zilla => $zilla});
 isa_ok($plug, $mod);
 
