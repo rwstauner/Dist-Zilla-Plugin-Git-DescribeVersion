@@ -4,28 +4,28 @@ Revision history for Dist::Zilla::Plugin::Git::DescribeVersion
 
   - Superficial dist/release changes
 
-1.001011 2010-12-16
+1.001011  2010-12-17T04:26:42Z
 
   - use Module::Build for installation
   - Documentation/dist meta improvements
 
-1.001005 2010-12-10
+1.001005  2010-12-10T19:29:47Z
 
   - Add test script for provide_version()
   - Documentation/dist meta improvements
 
-1.000010 2010-12-07
+1.000010  2010-12-07T21:07:19Z
 
   - Documentation/dist meta improvements
 
-0.007006 2010-11-17
+0.007006  2010-11-17T16:22:34Z
 
   - Initial release after being separated from Git-DescribeVersion dist
 
-0.006012 2010-11-15
+0.006012  2010-11-15T13:27:00Z
 
   - Initial non-development release to CPAN (in Git-DescribeVersion dist)
 
-0.004008 2010-10-24
+0.004008  2010-10-24T22:09:00Z
 
   - Initial  (development)  release to CPAN (in Git-DescribeVersion dist)
