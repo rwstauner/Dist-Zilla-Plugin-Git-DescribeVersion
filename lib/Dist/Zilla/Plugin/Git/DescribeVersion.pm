@@ -1,3 +1,4 @@
+# vim: set ts=2 sts=2 sw=2 expandtab smarttab:
 use strict;
 use warnings;
 
@@ -16,32 +17,33 @@ with 'Dist::Zilla::Role::VersionProvider';
 
 # -- attributes
 
-	while( my ($name, $default) = each %Git::DescribeVersion::Defaults ){
-has $name => ( is => 'ro', isa=>'Str', default => $default );
-	}
+while( my ($name, $default) = each %Git::DescribeVersion::Defaults ){
+  has $name => ( is => 'ro', isa=>'Str', default => $default );
+}
 
 # -- role implementation
 
 sub provide_version {
-	my ($self) = @_;
+  my ($self) = @_;
 
-	# override (or maybe needed to initialize)
-	return $ENV{V} if exists $ENV{V};
+  # override (or maybe needed to initialize)
+  return $ENV{V} if exists $ENV{V};
 
-	# less overhead to use %Defaults than MOP meta API
-	my $opts = { map { $_ => $self->$_() }
-		keys %Git::DescribeVersion::Defaults };
+  # less overhead to use %Defaults than MOP meta API
+  my $opts = { map { $_ => $self->$_() }
+    keys %Git::DescribeVersion::Defaults };
 
-	my $new_ver = eval {
-		Git::DescribeVersion->new($opts)->version;
-	};
+  # TODO: Version::Next::next_version($tag) if $ENV{DZIL_RELEASING}?
+  my $new_ver = eval {
+    Git::DescribeVersion->new($opts)->version;
+  };
 
-	$self->log_fatal("Could not determine version from tags: $@")
-		unless defined $new_ver;
+  $self->log_fatal("Could not determine version from tags: $@")
+    unless defined $new_ver;
 
-	$self->log("Git described version as $new_ver");
+  $self->log("Git described version as $new_ver");
 
-	$self->zilla->version("$new_ver");
+  $self->zilla->version("$new_ver");
 }
 
 __PACKAGE__->meta->make_immutable;
@@ -57,8 +59,8 @@ no Moose;
 
 In your F<dist.ini>:
 
-	[Git::DescribeVersion]
-	match_pattern  = v[0-9]*     ; this is the default
+  [Git::DescribeVersion]
+  match_pattern  = v[0-9]*     ; this is the default
 
 =head1 DESCRIPTION
 
