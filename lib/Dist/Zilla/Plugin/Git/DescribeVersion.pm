@@ -11,7 +11,6 @@ package Dist::Zilla::Plugin::Git::DescribeVersion;
 use Dist::Zilla 4 ();
 use Git::DescribeVersion ();
 use Moose;
-use namespace::autoclean 0.09;
 
 with 'Dist::Zilla::Role::VersionProvider';
 
