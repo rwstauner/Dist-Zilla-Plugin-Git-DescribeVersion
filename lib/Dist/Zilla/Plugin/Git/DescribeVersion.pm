@@ -1,3 +1,6 @@
+use strict;
+use warnings;
+
 package Dist::Zilla::Plugin::Git::DescribeVersion;
 # ABSTRACT: Provide version using git-describe
 
@@ -5,8 +8,6 @@ package Dist::Zilla::Plugin::Git::DescribeVersion;
 # This code copied/modified from Dist::Zilla::Plugin::Git::NextVersion.
 # Thanks rjbs and jquelin!
 
-use strict;
-use warnings;
 use Dist::Zilla 4 ();
 use Git::DescribeVersion ();
 use Moose;
