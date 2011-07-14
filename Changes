@@ -2,6 +2,10 @@ Revision history for Dist::Zilla::Plugin::Git::DescribeVersion
 
 {{$NEXT}}
 
+1.003     2011-07-14T23:46:03Z
+
+  - Remove unused namespace::autoclean prereq
+  - Documentation improvements
   - Superficial dist/release changes
 
 1.001011  2010-12-17T04:26:42Z
