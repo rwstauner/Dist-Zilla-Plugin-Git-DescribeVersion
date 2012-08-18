@@ -68,6 +68,31 @@ the last tag is 0.005 and you want to jump to 1.000 you can set V = 1.000.
 
   $ V=1.000 dzil release
 
+=head1 USAGE
+
+B<Note>: Since L<Git::DescribeVersion>
+appends the third part to a two-part version tag
+(for example, a tag of C<v1.2> becomes C<v1.2.35>)
+This plugin is not designed to be combined with
+L<Dist::Zilla::Plugin::Git::Tag>
+(which will tag the repo with the generated version).
+
+Instead it works better with manual tags.
+For example, you might manually increase the minor version
+(from C<v1.2> to C<v1.3>) when a big feature is added or the API changes.
+Then each build will append the number of commits as the revision number
+(C<v1.3> becomes C<v1.3.28>).
+
+This is probably more useful for projects without formal releases.
+This is in fact the only way that the author still uses the module:
+For C<$work> projects where builds are deployed often
+to a variety of internal environments.
+
+For projects released to the world I suggest using the simple and logical
+L<Dist::Zilla::Plugin::Git::NextVersion>
+which does work nicely with
+L<Dist::Zilla::Plugin::Git::Tag>.
+
 =head1 SEE ALSO
 
 =for :list

@@ -2,6 +2,12 @@ Revision history for Dist::Zilla::Plugin::Git::DescribeVersion
 
 {{$NEXT}}
 
+  [Documentation]
+  - Clarify in the Pod that this plugin was designed for use with manual
+    two-part version tags (v1.2 => v1.2.34)
+    (and threfore not desgined to work with Dist::Zilla::Plugin::Git::Tag).
+    Thanks to Matthew Astley for helping straighten this out (rt-71626).
+
 1.003     2011-07-14T23:46:03Z
 
   - Remove unused namespace::autoclean prereq
