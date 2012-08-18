@@ -2,6 +2,8 @@ Revision history for Dist::Zilla::Plugin::Git::DescribeVersion
 
 {{$NEXT}}
 
+1.004     2012-08-18T18:30:29Z
+
   [Documentation]
   - Clarify in the Pod that this plugin was designed for use with manual
     two-part version tags (v1.2 => v1.2.34)
