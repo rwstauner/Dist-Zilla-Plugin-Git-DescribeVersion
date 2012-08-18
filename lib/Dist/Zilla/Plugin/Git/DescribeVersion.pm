@@ -5,23 +5,15 @@ use warnings;
 package Dist::Zilla::Plugin::Git::DescribeVersion;
 # ABSTRACT: Provide version using git-describe
 
-# I don't know much about Dist::Zilla or Moose.
-# This code copied/modified from Dist::Zilla::Plugin::Git::NextVersion.
-# Thanks rjbs and jquelin!
-
 use Dist::Zilla 4 ();
 use Git::DescribeVersion ();
 use Moose;
 
 with 'Dist::Zilla::Role::VersionProvider';
 
-# -- attributes
-
 while( my ($name, $default) = each %Git::DescribeVersion::Defaults ){
   has $name => ( is => 'ro', isa=>'Str', default => $default );
 }
-
-# -- role implementation
 
 sub provide_version {
   my ($self) = @_;
@@ -33,7 +25,6 @@ sub provide_version {
   my $opts = { map { $_ => $self->$_() }
     keys %Git::DescribeVersion::Defaults };
 
-  # TODO: Version::Next::next_version($tag) if $ENV{DZIL_RELEASING}?
   my $new_ver = eval {
     Git::DescribeVersion->new($opts)->version;
   };
@@ -46,14 +37,12 @@ sub provide_version {
   $self->zilla->version("$new_ver");
 }
 
-__PACKAGE__->meta->make_immutable;
 no Moose;
+__PACKAGE__->meta->make_immutable;
 1;
 
 =for Pod::Coverage
     provide_version
-
-=for stopwords RJBS JQUELIN
 
 =head1 SYNOPSIS
 
@@ -85,9 +74,5 @@ the last tag is 0.005 and you want to jump to 1.000 you can set V = 1.000.
 * L<Git::DescribeVersion>
 * L<Dist::Zilla>
 * L<Dist::Zilla::Plugin::Git::NextVersion>
-
-This code copied/modified from L<Dist::Zilla::Plugin::Git::NextVersion>.
-
-Thanks I<RJBS> and I<JQUELIN> (and many others)!
 
 =cut
